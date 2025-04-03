@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nomit Vyas | Security Researcher & Bug Hunter</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+  <header class="hero" id="hero">
+    <div class="hero-content">
+      <h1>Nomit Vyas</h1>
+      <p id="typewriter"></p>
+      <div class="social-links">
+        <a href="https://github.com/nomitvyas"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/nomitvyas22"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <section id="about" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>
+      A passionate, enthusiastic and self-motivated cybersecurity professional having more than 5 years of experience as an IT security consultant and researcher...
+    </p>
+  </section>
+
+  <section id="skills" data-aos="fade-up">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div>Web-App Pentest</div><div>Network Security</div><div>Red Teaming</div><div>Burp Suite</div><div>Metasploit</div><div>Nmap</div><div>Wireshark</div>
+    </div>
+  </section>
+
+  <section id="timeline" data-aos="fade-up">
+    <h2>Experience</h2>
+    <div class="timeline">
+      <div class="entry">
+        <h3>Cyber Defence Analyst @ IG Group</h3>
+        <p>Working on Red Teaming, Threat Hunting, and Vulnerability Testing.</p>
+      </div>
+      <div class="entry">
+        <h3>Global Exposure</h3>
+        <p>Worked with clients in India, KSA, UAE, Qatar, and Hong Kong.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="blog" data-aos="fade-up">
+    <h2>Blog & Articles</h2>
+    <p>Coming soon... (Markdown/GitHub integration supported)</p>
+  </section>
+
+  <section id="contact" data-aos="fade-up">
+    <h2>Contact</h2>
+    <p>Email: nomit@example.com</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Nomit Vyas</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    const titles = ["Security Researcher", "Bug Bounty Hunter", "Cybersecurity Professional"];
+    let i = 0, j = 0, txt = '', isDeleting = false;
+    function typeWriter() {
+      const current = titles[i % titles.length];
+      if (!isDeleting) {
+        txt = current.substring(0, j++);
+        if (j > current.length) {
+          isDeleting = true;
+          setTimeout(typeWriter, 1500);
+          return;
+        }
+      } else {
+        txt = current.substring(0, j--);
+        if (j < 0) {
+          isDeleting = false;
+          i++;
+        }
+      }
+      document.getElementById('typewriter').innerText = txt;
+      setTimeout(typeWriter, isDeleting ? 50 : 100);
+    }
+    typeWriter();
+    function toggleTheme() {
+      document.body.classList.toggle('light-mode');
+    }
+  </script>
+</body>
+</html>
